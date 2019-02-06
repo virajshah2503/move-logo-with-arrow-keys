@@ -1,3 +1,5 @@
+import * as actionTypes from './actionTypes.js';
+
 const initialState = {
 	speed : 2,
 	left : 5,
@@ -8,7 +10,7 @@ const logoReducer = (state = initialState,action) => {
 
 	let updateState = {...state};
 
-	if(action.type === "MOVE_LEFT"){
+	if(action.type === actionTypes.MOVE_LEFT){
 
 		let leftPos = updateState.left - updateState.speed;
 
@@ -25,7 +27,7 @@ const logoReducer = (state = initialState,action) => {
 	        return updateState;
 
 	    }
-	}else if(action.type === "MOVE_RIGHT"){
+	}else if(action.type === actionTypes.MOVE_RIGHT){
 
 		let leftPos = updateState.left + updateState.speed;
 
@@ -43,7 +45,7 @@ const logoReducer = (state = initialState,action) => {
 
 			return updateState;
 		}
-	}else if(action.type === "MOVE_UP"){
+	}else if(action.type === actionTypes.MOVE_UP){
 
 		let topPos = updateState.top - updateState.speed;
 
@@ -59,10 +61,11 @@ const logoReducer = (state = initialState,action) => {
 
 			return updateState;
 		}
-
-	}else if(action.type === "MOVE_DOWN"){
+	}else if(action.type === actionTypes.MOVE_DOWN){
 
 		let topPos = updateState.top + updateState.speed;
+
+		console.log(updateState)
 
 		let distanceDown = 450 - topPos;
 
@@ -78,7 +81,7 @@ const logoReducer = (state = initialState,action) => {
 
 			return updateState;
 		}
-	}else if(action.type === "INCREASE_SPEED"){
+	}else if(action.type === actionTypes.INCREASE_SPEED){
 
 		if(typeof action.value !== "undefined"){
 

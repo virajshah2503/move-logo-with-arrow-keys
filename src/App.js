@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './App.css';
+import * as actionTypes from './actionTypes.js';
 
 class App extends Component {
   constructor(props){
@@ -57,7 +58,7 @@ class App extends Component {
   changeSpeed(event){
     let speed = event.target.value;
 
-    this.props.increaseSpeed(speed);
+    this.props.increaseSpeed(parseInt(speed));
   }
 
   render() {
@@ -91,11 +92,11 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    moveLeft : () => dispatch({type : 'MOVE_LEFT'}),
-    moveRight : () => dispatch({type : 'MOVE_RIGHT'}),
-    moveUp : () => dispatch({type : 'MOVE_UP'}),
-    moveDown : () => dispatch({type : 'MOVE_DOWN'}),
-    increaseSpeed : (value) => dispatch({type : 'INCREASE_SPEED', value : value})
+    moveLeft : () => dispatch({type : actionTypes.MOVE_LEFT}),
+    moveRight : () => dispatch({type : actionTypes.MOVE_RIGHT}),
+    moveUp : () => dispatch({type : actionTypes.MOVE_UP}),
+    moveDown : () => dispatch({type : actionTypes.MOVE_DOWN}),
+    increaseSpeed : (value) => dispatch({type : actionTypes.INCREASE_SPEED, value : value})
   };
 };
 
