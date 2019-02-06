@@ -1,14 +1,14 @@
 import * as actionTypes from './actionTypes.js';
 
 const initialState = {
-	speed : 2,
-	left : 5,
-	top : 5
+	speed : 2
 };
 
 const controlSpeedReducer = (state = initialState,action) => {
 
 	let updateState = {...state};
+
+	console.log(updateState);
 
 	if(action.type === actionTypes.INCREASE_SPEED){
 

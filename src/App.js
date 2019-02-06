@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './App.css';
-import * as actionTypes from './actionTypes.js';
+import * as actionCreators from './actionTypes.js';
 
 class App extends Component {
   constructor(props){
@@ -30,28 +30,30 @@ class App extends Component {
 
   keyPress(event){
 
+    let speed = this.props.controlspeed.speed;
+
     let key = event.keyCode;
 
     /*Left Arrow*/
 
     if (key === 37) {
-      this.props.moveLeft();
+      this.props.moveLeft(speed);
     }
 
     /*Up Arrow*/
 
     else if (key === 38) {
-      this.props.moveUp();
+      this.props.moveUp(speed);
     }
 
     /*Right Arrow*/
     else if (key === 39) {
-      this.props.moveRight();
+      this.props.moveRight(speed);
     }
 
     /*Down Arrow*/
     else if (key === 40) {
-      this.props.moveDown();
+      this.props.moveDown(speed);
     }
   }
 
@@ -93,11 +95,11 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    moveLeft : () => dispatch({type : actionTypes.MOVE_LEFT}),
-    moveRight : () => dispatch({type : actionTypes.MOVE_RIGHT}),
-    moveUp : () => dispatch({type : actionTypes.MOVE_UP}),
-    moveDown : () => dispatch({type : actionTypes.MOVE_DOWN}),
-    increaseSpeed : (value) => dispatch({type : actionTypes.INCREASE_SPEED, value : value})
+    moveLeft : (speed) => dispatch(actionCreators.moveleft(speed)),
+    moveRight : (speed) => dispatch(actionCreators.moveright(speed)),
+    moveUp : (speed) => dispatch(actionCreators.moveup(speed)),
+    moveDown : (speed) => dispatch(actionCreators.movedown(speed)),
+    increaseSpeed : (value) => dispatch(actionCreators.increasespeed(value))
   };
 };
 
