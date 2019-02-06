@@ -77,7 +77,7 @@ class App extends Component {
           <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/jhabdas/images/969312/react-logo-1000-transparent.png" className="App-logo" alt="logo" style={ logoposition }/>
         </div>
         <div className="control-moving-speed">
-            <input type="range" min="1" max="50" value={this.props.position.speed} onChange={this.changeSpeed} onKeyDown={this.sliderDefault}/>
+            <input type="range" min="1" max="50" value={this.props.controlspeed.speed} onChange={this.changeSpeed} onKeyDown={this.sliderDefault}/>
         </div>
       </div>
     );
@@ -86,7 +86,8 @@ class App extends Component {
 
 const mapStatetoProps = (state) => {
   return {
-    position : state
+    position : state.movement,
+    controlspeed : state.control
   };
 };
 

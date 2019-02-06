@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {createStore} from 'redux';
-import logoReducer from './reducer.js';
+import {createStore,combineReducers} from 'redux';
+import logoReducer from './logoReducer.js';
+import controlSpeedReducer from './controlSpeedReducer.js';
+
 import {Provider} from 'react-redux';
 
+const rootReducer = combineReducers({
+	movement : logoReducer,
+	control : controlSpeedReducer
+});
 
-const store = createStore(logoReducer);
+const store = createStore(rootReducer);
 
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

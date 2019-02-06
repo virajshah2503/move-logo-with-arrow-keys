@@ -65,8 +65,6 @@ const logoReducer = (state = initialState,action) => {
 
 		let topPos = updateState.top + updateState.speed;
 
-		console.log(updateState)
-
 		let distanceDown = 450 - topPos;
 
 		if(distanceDown <= updateState.speed){
@@ -80,12 +78,6 @@ const logoReducer = (state = initialState,action) => {
 			updateState.top = topPos;
 
 			return updateState;
-		}
-	}else if(action.type === actionTypes.INCREASE_SPEED){
-
-		if(typeof action.value !== "undefined"){
-
-			updateState.speed = action.value;
 		}
 	}
 
