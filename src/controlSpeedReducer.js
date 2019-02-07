@@ -8,8 +8,6 @@ const controlSpeedReducer = (state = initialState,action) => {
 
 	let updateState = {...state};
 
-	console.log(updateState);
-
 	if(action.type === actionTypes.INCREASE_SPEED){
 
 		if(typeof action.value !== "undefined"){

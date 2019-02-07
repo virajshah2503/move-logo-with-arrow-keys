@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import {createStore, combineReducers, applyMiddleware } from 'redux';
 import logoReducer from './logoReducer.js';
 import controlSpeedReducer from './controlSpeedReducer.js';
 
